@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+
+        let fruitsArray = ['Cherry', 'Pear', 'Grapefruit', 'Blueberry', 'Mango'];
+        fruitsArray.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+        function displayFruitsList() {
+            document.write('<ul>');
+            for (let i = 0; i < fruitsArray.length; i++) {
+                document.write('<li>' + fruitsArray[i] + '</li>');
+            }
+            document.write('</ul>');
+        }
+
+        function findFruitIndex(fruitName) {
+            let index = fruitsArray.findIndex(fruit => fruit.toLowerCase() === fruitName.toLowerCase());
+            
+            if (index === -1) {
+                index = fruitsArray.lastIndexOf(fruitName.toLowerCase());
+            }
+
+            return index;
+        }
+        displayFruitsList();
+
+        let fruitIndex = findFruitIndex('Pear');
+        if (fruitIndex !== -1) {
+            document.write('<p>Fruit "Pear" found at position ' + fruitIndex + '</p>');
+        } else {
+            document.write('<p>Fruit not found</p>');
+        }
+    </script>
+</body>
+</html>
